@@ -28,8 +28,8 @@ I am a passionate developer focused on creating innovative solutions and deliver
 
 - 🌐 Website: [somendradev23.corphash.net](https://somendradev23.corphash.net)
 - 📧 Email: somendradev23@gmail.com
-- 💼 LinkedIn: [Your Name](https://www.linkedin.com/in/somendra-yadav-b398322a5/)
-- 🐱 GitHub: [Your Username](https://github.com/Somendradev23)
+- 💼 LinkedIn: [Somendradev23](https://www.linkedin.com/in/somendra-yadav-b398322a5/)
+- 🐱 GitHub: [Somendradev23](https://github.com/Somendradev23)
 
 ## License
 
