@@ -95,8 +95,14 @@ section {
   background: radial-gradient(circle, rgba(108,99,255,0.08) 0%, transparent 70%);
   pointer-events: none;
   transform: translate(-50%, -50%);
-  z-index: 0;
+  z-index: 1;
   transition: opacity 0.3s;
+  /* Hidden on touch devices */
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor-glow { display: block; }
 }
 
 /* ---- CANVAS PARTICLES ---- */
@@ -208,18 +214,23 @@ header {
   position: fixed;
   top: 0; left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1002; /* above mobile nav overlay */
   padding: 18px 0;
   transition: var(--transition-fast);
 }
 
 header.scrolled {
-  background: rgba(5, 8, 22, 0.92);
+  background: rgba(5, 8, 22, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-glass);
   box-shadow: 0 4px 30px rgba(0,0,0,0.5);
   padding: 12px 0;
+}
+
+/* Disable cursor glow on touch/mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-glow { display: none; }
 }
 
 header .container {
@@ -1328,87 +1339,259 @@ footer {
   .hero .container {
     flex-direction: column;
     text-align: center;
+    gap: 30px;
   }
 
   .hero-content { order: 2; }
-  .hero-image { order: 1; margin-bottom: 20px; }
+  .hero-image { order: 1; margin-bottom: 10px; }
 
-  .hero-content p { margin: 0 auto 40px; }
+  .hero-content p { margin: 0 auto 35px; }
+  .hero-badge { margin: 0 auto 20px; }
 
   .cta-buttons { justify-content: center; }
   .social-icons { justify-content: center; }
 
-  .timeline::before { left: 25px; }
-  .timeline-dot { left: 25px; }
+  .timeline::before { left: 20px; }
+  .timeline-dot { left: 20px; }
 
   .timeline-content {
-    width: calc(100% - 60px);
-    left: 60px !important;
+    width: calc(100% - 55px);
+    left: 55px !important;
   }
 
   .contact-content {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .personal-info {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
+/* ============================================
+   MOBILE NAV FIX — use transform instead of
+   top so scroll doesn't break fixed position
+   ============================================ */
 @media screen and (max-width: 768px) {
+
+  /* NAVBAR — hidden off-screen via transform */
   .nav-links {
     position: fixed;
-    top: -110%;
+    top: 0;
     left: 0;
     width: 100%;
-    background: rgba(5, 8, 22, 0.97);
-    backdrop-filter: blur(20px);
+    background: rgba(5, 8, 22, 0.98);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     flex-direction: column;
     align-items: center;
-    padding: 40px 0;
+    justify-content: center;
+    gap: 10px;
+    padding: 90px 20px 40px;
     border-bottom: 1px solid var(--border-glass);
-    transition: top 0.4s ease;
+    /* KEY FIX: use transform+visibility so fixed nav
+       doesn't shift when page scrolls */
+    transform: translateY(-100%);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.4s ease;
+    z-index: 999;
+    height: 100vh;
+    overflow-y: auto;
   }
 
-  .nav-links.active { top: 65px; }
-  .nav-links li { margin: 12px 0; }
-  .hamburger { display: block; }
+  .nav-links.active {
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  .nav-links li {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+    padding: 14px 20px;
+    display: block;
+    border-radius: 10px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: rgba(108, 99, 255, 0.15);
+    color: white;
+  }
+
+  /* Hamburger always visible */
+  .hamburger {
+    display: block;
+    z-index: 1001;
+    position: relative;
+  }
 
   .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
+    background: var(--accent);
   }
   .hamburger.active .bar:nth-child(2) { opacity: 0; }
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+    background: var(--accent);
   }
 
-  .hero-image-wrapper { width: 260px; height: 260px; }
+  /* HERO */
+  .hero {
+    padding-top: 80px;
+    min-height: auto;
+  }
+
+  .hero .container {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  .hero-image-wrapper { width: 220px; height: 220px; }
   .tech-chip { display: none; }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
+  .hero-content h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+    letter-spacing: -1px;
   }
 
-  .about-card { padding: 30px 25px; }
+  .hero-content h2 { font-size: 1.2rem; }
 
-  .contact-form { padding: 28px 22px; }
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
 
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .skill-item { padding: 18px 14px; }
+  .skill-icon { font-size: 2rem; }
+
+  /* EXPERIENCE TIMELINE */
+  .timeline::before { left: 16px; }
+  .timeline-dot { left: 16px; width: 14px; height: 14px; }
+
+  .timeline-content {
+    width: calc(100% - 46px);
+    left: 46px !important;
+    padding: 20px;
+  }
+
+  .timeline-content h3 { font-size: 1rem; }
+  .timeline-content h4 { font-size: 0.85rem; }
+
+  /* PROJECTS */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* ABOUT */
+  .about-card {
+    padding: 25px 18px;
+  }
+
+  .personal-info {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* CONTACT */
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .contact-form { padding: 25px 18px; }
+
+  /* FOOTER */
   .footer-content {
     flex-direction: column;
     text-align: center;
+    gap: 15px;
   }
+
+  .footer-links {
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  /* SCROLL TOP BUTTON — don't overlap content */
+  .scroll-top {
+    bottom: 20px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  /* Section header */
+  .section-header { margin-bottom: 45px; }
 }
 
 @media screen and (max-width: 576px) {
-  section { padding: 80px 0; }
+  section { padding: 70px 0; }
 
-  .hero-image-wrapper { width: 220px; height: 220px; }
+  .hero-image-wrapper { width: 190px; height: 190px; }
 
   .skills-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
+
+  .skill-item { padding: 15px 12px; }
+  .skill-icon { font-size: 1.8rem; margin-bottom: 10px; }
+  .skill-item h4 { font-size: 0.85rem; margin-bottom: 10px; }
 
   .projects-grid {
     grid-template-columns: 1fr;
   }
+
+  .project-img { height: 170px; }
+
+  .tags { gap: 6px; }
+  .tags span { font-size: 0.7rem; padding: 3px 9px; }
+
+  .contact-item { padding: 15px; gap: 12px; }
+  .icon { width: 44px; height: 44px; font-size: 1.1rem; }
+
+  .section-header h2 { font-size: clamp(1.6rem, 6vw, 2rem); }
+
+  .about-card { padding: 20px 15px; }
+
+  .timeline-content { padding: 16px 14px; }
+  .timeline-content p { font-size: 0.85rem; }
 }
+
+/* Extra small screens */
+@media screen and (max-width: 400px) {
+  .hero-content h1 { font-size: 1.8rem; }
+  .hero-image-wrapper { width: 170px; height: 170px; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .cta-buttons .btn { font-size: 0.85rem; padding: 12px 20px; }
+}
+
+/* Prevent horizontal overflow globally */
+* { max-width: 100%; }
+html, body { overflow-x: hidden; }
