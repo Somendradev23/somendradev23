@@ -10,8 +10,8 @@
     <meta name="keywords" content="full stack developer, node.js, reactjs, php, mysql, code igniter , laravel, react native, android, ios, cloud infrastructure, aws, ai and machine learning" />
     <meta name="author" content="Somendra Kumar Yadav" />
 
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="msapplication-TileColor" content="#6c63ff" />
+    <meta name="theme-color" content="#050816" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://somendradev23.corphash.net/" />
@@ -28,11 +28,6 @@
     <link rel="canonical" href="https://somendradev23.corphash.net/" />
     <meta name="robots" content="index, follow" />
 
-    <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" /> -->
-
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -46,8 +41,20 @@
     </script>
   </head>
   <body>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particles Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Header Section -->
-    <header>
+    <header id="header">
       <div class="container">
         <div class="logo">
           <h1>
@@ -56,15 +63,15 @@
           </h1>
         </div>
         <nav>
-          <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active" id="nav-home">Home</a></li>
+            <li><a href="#about" id="nav-about">About</a></li>
+            <li><a href="#skills" id="nav-skills">Skills</a></li>
+            <li><a href="#experience" id="nav-experience">Experience</a></li>
+            <li><a href="#projects" id="nav-projects">Projects</a></li>
+            <li><a href="#contact" id="nav-contact">Contact</a></li>
           </ul>
-          <div class="hamburger">
+          <div class="hamburger" id="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
@@ -75,27 +82,49 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+      <!-- Background elements -->
+      <div class="hero-bg-grid"></div>
+      <div class="hero-bg-orb hero-bg-orb-1"></div>
+      <div class="hero-bg-orb hero-bg-orb-2"></div>
+      <div class="hero-bg-orb hero-bg-orb-3"></div>
+
       <div class="container">
-        <div class="hero-content">
+        <div class="hero-content reveal-left">
+          <div class="hero-badge">
+            <span class="dot"></span>
+            Available for Work
+          </div>
           <h1>
             Hi, I'm
-            <span>Somendra Kumar Yadav</span>
+            <span class="gradient-text">Somendra Kumar Yadav</span>
           </h1>
-          <h2>Full Stack Developer</h2>
-          <p>I build robust and scalable backend solutions with Node.js, PHP, and MySQL.</p>
+          <h2>
+            <span class="typed-text" id="typedText">Full Stack Developer</span>
+          </h2>
+          <p>I build robust, scalable backend solutions and beautiful frontend experiences using Node.js, React, PHP, and MySQL. Crafting high-performance web apps is my passion.</p>
           <div class="cta-buttons">
-            <a href="#contact" class="btn primary-btn">Contact Me</a>
-            <a href="#projects" class="btn secondary-btn">View My Work</a>
+            <a href="#contact" class="btn primary-btn" id="btn-contact">Contact Me</a>
+            <a href="#projects" class="btn secondary-btn" id="btn-projects">View My Work</a>
           </div>
           <div class="social-icons">
-            <a href="https://github.com/Somendradev23" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/somendra-yadav-b398322a5" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:somendradev23@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://github.com/Somendradev23" target="_blank" aria-label="GitHub" id="social-github"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/somendra-yadav-b398322a5" target="_blank" aria-label="LinkedIn" id="social-linkedin"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:somendradev23@gmail.com" target="_blank" aria-label="Email" id="social-email"><i class="fa-solid fa-envelope"></i></a>
           </div>
         </div>
-        <div class="hero-image">
-          <!-- You can add your profile image here -->
-          <img class="profile-placeholder" src="./images/somendradev23.png" alt="somedradev23" />
+        <div class="hero-image reveal-right">
+          <div class="hero-image-wrapper">
+            <div class="hero-image-ring"></div>
+            <div class="hero-image-ring-2"></div>
+            <img class="profile-placeholder" src="./images/somendradev23.png" alt="Somendra Kumar Yadav - Full Stack Developer" />
+            <!-- Floating Tech Chips -->
+            <div class="hero-tech-chips">
+              <span class="tech-chip tech-chip-1">⚡ Node.js</span>
+              <span class="tech-chip tech-chip-2">⚛️ React</span>
+              <span class="tech-chip tech-chip-3">🐘 PHP</span>
+              <span class="tech-chip tech-chip-4">🗄️ MySQL</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -103,13 +132,13 @@
     <!-- About Section -->
     <section id="about" class="about">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <h2>About Me</h2>
           <div class="underline"></div>
         </div>
         <div class="about-content">
-          <div class="about-text">
-            <p>I am a passionate Full Stack Developer with over 4+ years of professional experience in building scalable web applications. I specialize in Node.js, PHP, MySQL, and related technologies.</p>
+          <div class="about-card reveal">
+            <p>I am a passionate <strong style="color: #6c63ff;">Full Stack Developer</strong> with over <strong style="color: #00d4ff;">4+ years</strong> of professional experience in building scalable web applications. I specialize in Node.js, PHP, MySQL, and related technologies.</p>
             <p>My approach to development focuses on creating efficient, maintainable, and secure code that delivers exceptional user experiences. I enjoy solving complex problems and continuously learning new technologies.</p>
             <div class="personal-info">
               <div class="info-item">
@@ -129,7 +158,6 @@
                 <span class="info-value">4+ Years</span>
               </div>
             </div>
-            <!-- <a href="#" class="btn primary-btn">Download CV</a> -->
           </div>
         </div>
       </div>
@@ -138,19 +166,19 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <h2>My Skills</h2>
           <div class="underline"></div>
         </div>
         <div class="skills-content">
-          <div class="skill-category">
+          <div class="skill-category reveal">
             <h3>Backend Development</h3>
             <div class="skills-grid">
               <div class="skill-item" data-skill="Node.js">
                 <div class="skill-icon"><i class="fab fa-node-js"></i></div>
                 <h4>Node.js</h4>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 90%"></div>
+                  <div class="skill-progress" style="width: 0%" data-width="90%"></div>
                 </div>
                 <span class="skill-percentage">90%</span>
               </div>
@@ -158,7 +186,7 @@
                 <div class="skill-icon"><i class="fab fa-php"></i></div>
                 <h4>PHP</h4>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 85%"></div>
+                  <div class="skill-progress" style="width: 0%" data-width="85%"></div>
                 </div>
                 <span class="skill-percentage">85%</span>
               </div>
@@ -166,48 +194,44 @@
                 <div class="skill-icon"><i class="fas fa-database"></i></div>
                 <h4>MySQL</h4>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 88%"></div>
+                  <div class="skill-progress" style="width: 0%" data-width="88%"></div>
                 </div>
                 <span class="skill-percentage">88%</span>
               </div>
               <div class="skill-item">
-                <div class="skill-icon">
-                  <i class="fas fa-database"></i>
-                </div>
+                <div class="skill-icon"><i class="fas fa-database"></i></div>
                 <h4>PostgreSQL</h4>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 85%"></div>
+                  <div class="skill-progress" style="width: 0%" data-width="85%"></div>
                 </div>
-                <div class="skill-percentage">85%</div>
+                <span class="skill-percentage">85%</span>
               </div>
               <div class="skill-item">
-                <div class="skill-icon">
-                  <i class="fa-brands fa-python"></i>
-                </div>
+                <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
                 <h4>Python</h4>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 35%"></div>
+                  <div class="skill-progress" style="width: 0%" data-width="35%"></div>
                 </div>
-                <div class="skill-percentage">35%</div>
+                <span class="skill-percentage">35%</span>
               </div>
               <div class="skill-item" data-skill="Express.js">
                 <div class="skill-icon"><i class="fab fa-node-js"></i></div>
                 <h4>Express.js</h4>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 95%"></div>
+                  <div class="skill-progress" style="width: 0%" data-width="95%"></div>
                 </div>
                 <span class="skill-percentage">95%</span>
               </div>
             </div>
           </div>
-          <div class="skill-category">
+          <div class="skill-category reveal">
             <h3>Frontend Development</h3>
             <div class="skills-grid">
               <div class="skill-item" data-skill="HTML">
                 <div class="skill-icon"><i class="fab fa-html5"></i></div>
                 <h4>HTML</h4>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 95%"></div>
+                  <div class="skill-progress" style="width: 0%" data-width="99%"></div>
                 </div>
                 <span class="skill-percentage">99%</span>
               </div>
@@ -215,7 +239,7 @@
                 <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
                 <h4>CSS</h4>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 80%"></div>
+                  <div class="skill-progress" style="width: 0%" data-width="80%"></div>
                 </div>
                 <span class="skill-percentage">80%</span>
               </div>
@@ -223,33 +247,29 @@
                 <div class="skill-icon"><i class="fab fa-js"></i></div>
                 <h4>JavaScript</h4>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 95%"></div>
+                  <div class="skill-progress" style="width: 0%" data-width="99%"></div>
                 </div>
                 <span class="skill-percentage">99%</span>
               </div>
               <div class="skill-item">
-                <div class="skill-icon">
-                  <i class="fa-brands fa-react"></i>
-                </div>
+                <div class="skill-icon"><i class="fa-brands fa-react"></i></div>
                 <h4>ReactJs</h4>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 85%"></div>
+                  <div class="skill-progress" style="width: 0%" data-width="90%"></div>
                 </div>
-                <div class="skill-percentage">90%</div>
+                <span class="skill-percentage">90%</span>
               </div>
               <div class="skill-item">
-                <div class="skill-icon">
-                  <i class="fa-brands fa-react"></i>
-                </div>
+                <div class="skill-icon"><i class="fa-brands fa-react"></i></div>
                 <h4>React Native</h4>
                 <div class="skill-bar">
-                  <div class="skill-progress" style="width: 85%"></div>
+                  <div class="skill-progress" style="width: 0%" data-width="85%"></div>
                 </div>
-                <div class="skill-percentage">85%</div>
+                <span class="skill-percentage">85%</span>
               </div>
             </div>
           </div>
-          <div class="skill-category">
+          <div class="skill-category reveal">
             <h3>Other Skills</h3>
             <div class="skills-grid">
               <div class="skill-item" data-skill="Git">
@@ -260,7 +280,7 @@
                 <div class="skill-icon"><i class="fas fa-server"></i></div>
                 <h4>RESTful APIs</h4>
               </div>
-              <div class="skill-item" data-skill="RESTful APIs">
+              <div class="skill-item">
                 <div class="skill-icon"><i class="fas fa-robot"></i></div>
                 <h4>AI Integration</h4>
               </div>
@@ -273,14 +293,14 @@
     <!-- Experience Section -->
     <section id="experience" class="experience">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <h2>Work Experience</h2>
           <div class="underline"></div>
         </div>
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <div class="timeline-content">
+            <div class="timeline-content reveal-right">
               <h3>Freelance Full Stack Developer</h3>
               <h4>CorpHash</h4>
               <p class="timeline-date">From June 2025</p>
@@ -302,7 +322,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <div class="timeline-content">
+            <div class="timeline-content reveal-left">
               <h3>Senior Backend Developer</h3>
               <h4>MsCorpres Automation PVT. LTD.</h4>
               <p class="timeline-date">July 2024 - May 2025</p>
@@ -318,7 +338,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <div class="timeline-content">
+            <div class="timeline-content reveal-right">
               <h3>Backend Developer</h3>
               <h4>MsCorpres Automation PVT. LTD.</h4>
               <p class="timeline-date">Jan 2023 - July 2024</p>
@@ -333,7 +353,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
-            <div class="timeline-content">
+            <div class="timeline-content reveal-left">
               <h3>Junior Web Developer</h3>
               <h4>MsCorpres Automation PVT. LTD.</h4>
               <p class="timeline-date">Dec 2021 - Jan 2023</p>
@@ -350,28 +370,21 @@
       </div>
     </section>
 
-    <!-- Client Project -->
-    <section id="projects" class="projects">
+    <!-- Client Projects -->
+    <section id="client-projects" class="projects">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <h2>Clients Projects</h2>
           <div class="underline"></div>
         </div>
-        <!-- <div class="projects-filter">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="node">Node.js</button>
-          <button class="filter-btn" data-filter="php">PHP</button>
-          <button class="filter-btn" data-filter="database">Database</button>
-        </div> -->
         <div class="projects-grid">
-
-          <div class="project-card" data-category="node">
+          <div class="project-card reveal" data-category="node">
             <div class="project-img">
-              <img src="./images/clientProject/z3ro.png" alt="blynkk" />
+              <img src="./images/clientProject/z3ro.png" alt="Z3ro" />
             </div>
             <div class="project-info">
               <h3>Z3ro</h3>
-              <p>It must state your current job title, your core skills, and the value you bring to your industry.</p>
+              <p>A full-stack platform built with cutting-edge technologies to deliver exceptional performance and user experience.</p>
               <div class="project-tags">
                 <span>Node.js</span>
                 <span>Next</span>
@@ -380,121 +393,101 @@
                 <span>...</span>
               </div>
               <div class="project-links">
-                <!-- <a href="#" target="_blank">
-                  <i class="fab fa-github"></i>
-                  Code
-                </a> -->
-                <a href="https://z3ro.co.in" target="_blank">
+                <a href="https://z3ro.co.in" target="_blank" id="link-z3ro">
                   <i class="fas fa-external-link-alt"></i>
-                  Link
+                  Live Link
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="project-card" data-category="node">
+          <div class="project-card reveal" data-category="node">
             <div class="project-img">
               <img src="./images/clientProject/blynkk.png" alt="blynkk" />
             </div>
             <div class="project-info">
               <h3>blynkk: Instant House Help</h3>
-              <p>I collaborated with blynkk to build a house help platform .</p>
+              <p>I collaborated with blynkk to build a house help platform with real-time tracking and payment integration.</p>
               <div class="project-tags">
                 <span>Node.js</span>
                 <span>ReactJs</span>
                 <span>MySql</span>
-                <span>Razorpay Payment API</span>
+                <span>Razorpay</span>
                 <span>Google Maps</span>
-                <span>React Native(Android and iOS)</span>
+                <span>React Native</span>
                 <span>...</span>
               </div>
               <div class="project-links">
-                <!-- <a href="#" target="_blank">
-                  <i class="fab fa-github"></i>
-                  Code
-                </a> -->
-                <a href="https://play.google.com/store/apps/details?id=com.blynckk.consumers&hl=en_IN" target="_blank">
+                <a href="https://play.google.com/store/apps/details?id=com.blynckk.consumers&hl=en_IN" target="_blank" id="link-blynkk">
                   <i class="fas fa-external-link-alt"></i>
-                  Link
+                  Play Store
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="project-card" data-category="node">
+          <div class="project-card reveal" data-category="node">
             <div class="project-img">
               <img src="./images/clientProject/careerbanao.png" alt="career banao" />
             </div>
             <div class="project-info">
               <h3>Career Banao</h3>
-              <p>I collaborated with Career Banao to build a career guidance platform .</p>
+              <p>I collaborated with Career Banao to build a comprehensive career guidance platform for students.</p>
               <div class="project-tags">
                 <span>Node.js</span>
                 <span>ReactJs</span>
                 <span>MySql</span>
               </div>
               <div class="project-links">
-                <!-- <a href="#" target="_blank">
-                  <i class="fab fa-github"></i>
-                  Code
-                </a> -->
-                <a href="https://careerbanao.org/" target="_blank">
+                <a href="https://careerbanao.org/" target="_blank" id="link-careerbanao">
                   <i class="fas fa-external-link-alt"></i>
-                  Link
+                  Live Link
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="project-card" data-category="node">
+          <div class="project-card reveal" data-category="node">
             <div class="project-img">
-              <img src="./images/clientProject/newpitmansteno.png" alt="New PETMAN STENO" />
+              <img src="./images/clientProject/newpitmansteno.png" alt="New PITMAN STENO" />
             </div>
             <div class="project-info">
-              <h3>NEW PETMANSTENO INSTITUTE</h3>
-              <p>I collaborated with NEW PITMANSTENO INSTITUTE to build PITMANSTENO, a typing practice platform .</p>
+              <h3>NEW PITMANSTENO INSTITUTE</h3>
+              <p>Collaborated with NEW PITMANSTENO INSTITUTE to build a typing practice platform with AI-powered feedback.</p>
               <div class="project-tags">
                 <span>Node.js</span>
                 <span>ReactJs</span>
                 <span>MySql</span>
                 <span>OpenAI API</span>
-                <span>Razorpay Payment API</span>
+                <span>Razorpay</span>
               </div>
               <div class="project-links">
-                <!-- <a href="#" target="_blank">
-                  <i class="fab fa-github"></i>
-                  Code
-                </a> -->
-                <a href="https://newpitmansinstituteindia.com" target="_blank">
+                <a href="https://newpitmansinstituteindia.com" target="_blank" id="link-pitman">
                   <i class="fas fa-external-link-alt"></i>
-                  Link
+                  Live Link
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="project-card" data-category="node">
+          <div class="project-card reveal" data-category="node">
             <div class="project-img">
-              <img src="./images/clientProject/people-peace-foundation.png" alt="Pepeople Peace Foundation" />
+              <img src="./images/clientProject/people-peace-foundation.png" alt="People Peace Foundation" />
             </div>
             <div class="project-info">
               <h3>People Peace Foundation</h3>
-              <p>I collaborated with People Peace Foundation to build a PET Care Platform .</p>
+              <p>Collaborated with People Peace Foundation to build a comprehensive PET Care Platform with payment integration.</p>
               <div class="project-tags">
                 <span>Node.js</span>
                 <span>ReactJs</span>
                 <span>MySql</span>
                 <span>PHP (CI4)</span>
-                <span>Razorpay Payment API</span>
+                <span>Razorpay</span>
               </div>
               <div class="project-links">
-                <!-- <a href="#" target="_blank">
-                  <i class="fab fa-github"></i>
-                  Code
-                </a> -->
-                <a href="https://app.peoplepeacefoundation.com" target="_blank">
+                <a href="https://app.peoplepeacefoundation.com" target="_blank" id="link-ppf">
                   <i class="fas fa-external-link-alt"></i>
-                  Link
+                  Live Link
                 </a>
               </div>
             </div>
@@ -503,39 +496,23 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- My Projects Section -->
     <section id="projects" class="projects">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <h2>My Projects</h2>
           <div class="underline"></div>
         </div>
-        <!-- <div class="projects-filter">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="node">Node.js</button>
-          <button class="filter-btn" data-filter="php">PHP</button>
-          <button class="filter-btn" data-filter="database">Database</button>
-        </div> -->
-
         <div class="projects-grid">
-          <div class="project-card" data-category="node">
+          <div class="project-card reveal" data-category="node">
             <div class="project-img">
               <img src="./images/projects/smart-living-corphash.png" alt="Smart Living - Corp Hash" />
             </div>
             <div class="project-info">
               <h3>Smart Living</h3>
-              <p>A landing page for Smart Living.</p>
-              <!-- <div class="project-tags">
-                <span>Node.js</span>
-                <span>Express</span>
-                <span>MySql</span>
-              </div> -->
+              <p>A premium landing page for Smart Living with modern animations and responsive design.</p>
               <div class="project-links">
-                <!-- <a href="#" target="_blank">
-                  <i class="fab fa-github"></i>
-                  Code
-                </a> -->
-                <a href="https://templates.corphash.net/smart-living/" target="_blank">
+                <a href="https://templates.corphash.net/smart-living/" target="_blank" id="link-smart-living">
                   <i class="fas fa-external-link-alt"></i>
                   Demo
                 </a>
@@ -543,72 +520,45 @@
             </div>
           </div>
 
-          <div class="project-card" data-category="node">
+          <div class="project-card reveal" data-category="node">
             <div class="project-img">
               <img src="./images/projects/corp-ecomm-admin-panel.png" alt="Corp Ecommerce Panel - Corp Hash" />
             </div>
             <div class="project-info">
               <h3>Corp Ecommerce Panel</h3>
-              <p>A fully functional e-commerce admin panel built with ReactJs. Includes features such as product management, order management, user management, and payment integration.</p>
-              <!-- <div class="project-tags">
-                <span>Node.js</span>
-                <span>Express</span>
-                <span>MySql</span>
-              </div> -->
+              <p>A fully functional e-commerce admin panel built with ReactJs. Includes product management, order management, user management, and payment integration.</p>
               <div class="project-links">
-                <!-- <a href="#" target="_blank">
-                  <i class="fab fa-github"></i>
-                  Code
-                </a> -->
-                <a href="https://templates.corphash.net/corp-ecomm-panel" target="_blank">
+                <a href="https://templates.corphash.net/corp-ecomm-panel" target="_blank" id="link-ecomm-panel">
                   <i class="fas fa-external-link-alt"></i>
                   Demo
                 </a>
               </div>
             </div>
           </div>
-          <div class="project-card" data-category="node">
+          <div class="project-card reveal" data-category="node">
             <div class="project-img">
               <img src="./images/projects/corphas-fashion-ecommerce.png" alt="E-commerce - Corp Hash" />
             </div>
             <div class="project-info">
               <h3>E-commerce</h3>
-              <p>A fully functional e-commerce website built with Node.js, Express, and MySql. Includes features such as product catalog, shopping cart, user authentication, and payment integration.</p>
-              <!-- <div class="project-tags">
-                <span>Node.js</span>
-                <span>Express</span>
-                <span>MySql</span>
-              </div> -->
+              <p>A fully functional e-commerce website with product catalog, shopping cart, user authentication, and payment integration.</p>
               <div class="project-links">
-                <!-- <a href="#" target="_blank">
-                  <i class="fab fa-github"></i>
-                  Code
-                </a> -->
-                <a href="https://templates.corphash.net/ecommerce/" target="_blank">
+                <a href="https://templates.corphash.net/ecommerce/" target="_blank" id="link-ecommerce">
                   <i class="fas fa-external-link-alt"></i>
                   Demo
                 </a>
               </div>
             </div>
           </div>
-          <div class="project-card" data-category="php">
+          <div class="project-card reveal" data-category="php">
             <div class="project-img">
               <img src="./images/projects/corphas-corp-estate.png" alt="Corp Estate - Corp Hash" />
             </div>
             <div class="project-info">
               <h3>Corp Estate</h3>
-              <p>A real estate website built with features include property listings, search functionality, user authentication, service , about etc.</p>
-              <!-- <div class="project-tags">
-                <span>PHP</span>
-                <span>MySQL</span>
-                <span>Bootstrap</span>
-              </div> -->
+              <p>A real estate website with property listings, search functionality, user authentication, service and about pages.</p>
               <div class="project-links">
-                <!-- <a href="#" target="_blank">
-                  <i class="fab fa-github"></i>
-                  Code
-                </a> -->
-                <a href="https://templates.corphash.net/corp-sstates/" target="_blank">
+                <a href="https://templates.corphash.net/corp-sstates/" target="_blank" id="link-estate">
                   <i class="fas fa-external-link-alt"></i>
                   Demo
                 </a>
@@ -622,12 +572,12 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal">
           <h2>Contact Me</h2>
           <div class="underline"></div>
         </div>
         <div class="contact-content">
-          <div class="contact-info">
+          <div class="contact-info reveal-left">
             <div class="contact-item">
               <div class="icon">
                 <i class="fas fa-envelope"></i>
@@ -656,18 +606,16 @@
               </div>
             </div>
             <div class="social-links">
-              <a href="https://github.com/Somendradev23" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/somendra-yadav-b398322a5" target="_blank"><i class="fab fa-linkedin"></i></a>
-              <a href="mailto:somendradev23@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+              <a href="https://github.com/Somendradev23" target="_blank" aria-label="GitHub" id="contact-github"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/somendra-yadav-b398322a5" target="_blank" aria-label="LinkedIn" id="contact-linkedin"><i class="fab fa-linkedin"></i></a>
+              <a href="mailto:somendradev23@gmail.com" target="_blank" aria-label="Email" id="contact-email"><i class="fa-solid fa-envelope"></i></a>
             </div>
           </div>
-          <div class="contact-form">
+          <div class="contact-form reveal-right">
             <form action="https://corphash.net/contactus.php" id="contactForm" method="post">
-              <p>
-                <span style="color: red">
-                  Form not working!!! you can mail me at
-                  <a style="color: rgb(8, 24, 254)" href="mailto:somendradev23@gmail.com" target="_blank">somendradev23@gmail.com</a>
-                </span>
+              <p class="form-note">
+                ⚠️ Form currently unavailable. You can mail me directly at
+                <a href="mailto:somendradev23@gmail.com" target="_blank">somendradev23@gmail.com</a>
               </p>
               <div class="form-group">
                 <input type="text" id="name" name="name" placeholder="Your Name" required />
@@ -681,7 +629,7 @@
               <div class="form-group">
                 <textarea id="message" name="message" placeholder="Your Message" required></textarea>
               </div>
-              <button type="submit" class="btn primary-btn">Send Message</button>
+              <button type="submit" class="btn primary-btn" id="btn-submit">Send Message</button>
             </form>
           </div>
         </div>
